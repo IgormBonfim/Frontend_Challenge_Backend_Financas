@@ -1,0 +1,30 @@
+a {
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #000A61;
+}
+
+.header__logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__nav__link {
+  padding: 25px;
+}
+
+.header__nav__link:hover {
+  background-color: #fff;
+  color: #000A61;
+}
