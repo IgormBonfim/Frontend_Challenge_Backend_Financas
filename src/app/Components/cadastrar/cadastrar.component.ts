@@ -1,3 +1,4 @@
+import { CadastroService } from './../../Services/cadastro.service';
 import { Usuario } from './../../Models/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,7 +12,12 @@ export class CadastrarComponent implements OnInit {
 
   cadastroForm!: FormGroup
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+
+    private service: CadastroService,
+    private formBuilder: FormBuilder
+
+    ) { }
 
   ngOnInit(): void {
     this.cadastroForm = this.formBuilder.group(
@@ -23,8 +29,11 @@ export class CadastrarComponent implements OnInit {
   }
 
   submitCadastro() {
-    debugger
+    console.log("teste");
+
     var dadosCadastro = this.cadastroForm.getRawValue() as Usuario;
+    this.service.create(dadosCadastro);
+    console.log("Usuario cadastrado");
   }
 
 }
