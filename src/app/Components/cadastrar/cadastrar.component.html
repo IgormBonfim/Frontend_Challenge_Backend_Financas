@@ -1,0 +1,18 @@
+<main class="container">
+  <div class="box">
+    <h3 class="box__titulo">Cadastre-se</h3>
+    <form class="box__campos" [formGroup]="cadastroForm">
+      <label class="box__label" for="">Digite seu email</label>
+      <input class="box__input" type="email" placeholder="seuemail@challengebackend.com" formControlName="email">
+      <label class="box__label" for="">Confirme seu email</label>
+      <input class="box__input" type="email" placeholder="seuemail@challengebackend.com">
+      <label class="box__label" for="">Digite sua senha</label>
+      <input class="box__input" type="password" placeholder="Digite sua senha" formControlName="senha">
+      <label class="box__label" for="">Confirme sua senha</label>
+      <input class="box__input" type="password" placeholder="Confirme sua senha">
+    </form>
+    <span class="box__bordas">
+      <button class="box__botao" [disabled]="!cadastroForm.valid" (click)="submitCadastro()">Cadastre-se</button>
+    </span>
+  </div>
+</main>

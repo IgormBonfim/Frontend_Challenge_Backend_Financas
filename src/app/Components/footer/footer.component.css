@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--cor-principal);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer__logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.footer__nome {
+  padding: 17px;
+  font-weight: 300;
+}

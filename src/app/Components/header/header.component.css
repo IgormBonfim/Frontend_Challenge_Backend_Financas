@@ -6,11 +6,12 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #000A61;
+  background-color: var(--cor-principal);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .header__logo {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   color: #fff;
 }
@@ -26,5 +27,5 @@ a {
 
 .header__nav__link:hover {
   background-color: #fff;
-  color: #000A61;
+  color: var(--cor-principal);
 }
