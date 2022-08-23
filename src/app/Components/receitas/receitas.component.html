@@ -6,8 +6,7 @@
     <a class="cabecalho__botao">Adicionar Receita</a>
   </div>
 
-  <div class="financas" *ngIf="receitas | async as receitas">
-
+  <div class="financas" *ngIf="receitas | async as receitas; else loading">
     <div *ngFor="let receita of receitas" class="financas__box">
       <h2 class="financas__box__titulo"> {{receita.descricao}} </h2>
       <h3 class="financas__box__categoria"> {{receita.categoria.nomeCategoria}} </h3>
@@ -16,3 +15,7 @@
     </div>
   </div>
 </main>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
