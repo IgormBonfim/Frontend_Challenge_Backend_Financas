@@ -23,17 +23,23 @@ export class CadastrarComponent implements OnInit {
     this.cadastroForm = this.formBuilder.group(
       {
         email: ["", [Validators.required, Validators.email]],
-        senha: ["", [Validators.required]]
+        confirmarEmail: ["", [Validators.required, Validators.email]],
+        senha: ["", [Validators.required]],
+        confirmarSenha: ["", [Validators.required]]
       }
     )
   }
 
   submitCadastro() {
     console.log("teste");
-
     var dadosCadastro = this.cadastroForm.getRawValue() as Usuario;
-    this.service.create(dadosCadastro);
-    console.log("Usuario cadastrado");
+    this.service.create(dadosCadastro)
+      .subscribe(
+        response => {
+          var resposta = response
+          console.log(resposta);
+        }
+      )
   }
 
 }

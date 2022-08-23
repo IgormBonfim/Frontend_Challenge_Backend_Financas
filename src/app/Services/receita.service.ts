@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, first } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Response } from '../Models/Response';
-
-import { Usuario } from './../Models/Usuario';
+import { Receita } from '../Models/Receita';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CadastroService {
+export class ReceitaService {
 
   private readonly baseUrl = environment["endPoint"]
 
   constructor(private httpClient: HttpClient) { }
 
-  create(usuario: Usuario) {
-    return this.httpClient.post(this.baseUrl + "usuarios", usuario);
+  listAllReceitas():Observable<Receita[]> {
+    return this.httpClient.get<Receita[]>(this.baseUrl + "receitas").pipe(first());
   }
 }

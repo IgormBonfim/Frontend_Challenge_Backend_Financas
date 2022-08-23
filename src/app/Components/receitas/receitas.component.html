@@ -1,0 +1,18 @@
+<main class="container">
+
+  <div class="cabecalho">
+    <h2 class="cabecalho__titulo">Receitas</h2>
+    <input class="cabecalho__search" type="text">
+    <a class="cabecalho__botao">Adicionar Receita</a>
+  </div>
+
+  <div class="financas" *ngIf="receitas | async as receitas">
+
+    <div *ngFor="let receita of receitas" class="financas__box">
+      <h2 class="financas__box__titulo"> {{receita.descricao}} </h2>
+      <h3 class="financas__box__categoria"> {{receita.categoria.nomeCategoria}} </h3>
+      <p class="financas__box__valor">Valor: R$ {{ receita.valor }}</p>
+      <a class="financas__box__botao">Mais detalhes</a>
+    </div>
+  </div>
+</main>
