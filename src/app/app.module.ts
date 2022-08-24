@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ReceitasComponent } from './Components/receitas/receitas.component';
 import { LoadingComponent } from './Shared/loading/loading.component';
+import { AlertModalComponent } from './Shared/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,18 @@ import { LoadingComponent } from './Shared/loading/loading.component';
     FooterComponent,
     CadastrarComponent,
     ReceitasComponent,
-    LoadingComponent
+    LoadingComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AlertModalComponent]
 })
 export class AppModule { }

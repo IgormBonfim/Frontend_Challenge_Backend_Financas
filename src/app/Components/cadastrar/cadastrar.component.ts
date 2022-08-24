@@ -1,7 +1,9 @@
+import { AlertModalComponent } from './../../Shared/alert-modal/alert-modal.component';
 import { CadastroService } from './../../Services/cadastro.service';
 import { Usuario } from './../../Models/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-cadastrar',
@@ -11,11 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastrarComponent implements OnInit {
 
   cadastroForm!: FormGroup
+  bsModalRef!: BsModalRef
 
   constructor(
 
     private service: CadastroService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private modalService: BsModalService
 
     ) { }
 
@@ -40,6 +44,13 @@ export class CadastrarComponent implements OnInit {
           console.log(resposta);
         }
       )
+  }
+
+  onAlert() {
+    this.bsModalRef = this.modalService.show(AlertModalComponent);
+    this.bsModalRef.content.type = 'danger';
+    this.bsModalRef.content.message = 'Erro ao carregar cadastro';
+
   }
 
 }
