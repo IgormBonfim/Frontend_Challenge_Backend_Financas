@@ -1,0 +1,20 @@
+<main class="container">
+  <div class="box">
+    <h3 class="box__titulo">Adicionar Receita</h3>
+    <form class="box__campos">
+      <label class="box__label" for="">Descrição*</label>
+      <input class="box__input" type="text" placeholder="Descrição da receita">
+      <label class="box__label" for="">Valor*</label>
+      <input class="box__input" type="number" step="0.01" name="quantity" min="0.01" placeholder="R$ 1297.00">
+      <label class="box__label" for="">Data*</label>
+      <input class="box__input" type="date" bsDatepicker>
+      <label class="box__label" for="">Categoria*</label>
+      <select class="box__input">
+        <option class="box__input" *ngFor="let categoria of categorias" value="{{ categoria.idCategoria }}">{{ categoria.nomeCategoria }}</option>
+      </select>
+    </form>
+    <span class="box__bordas">
+      <button class="btn box__botao" type="submit">Adicionar Receita</button>
+    </span>
+  </div>
+</main>

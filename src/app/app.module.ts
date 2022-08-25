@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,9 +11,10 @@ import { CadastrarComponent } from './Components/cadastrar/cadastrar.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { HomeComponent } from './Components/home/home.component';
+import { AdicionarReceitaComponent } from './Components/receitas/adicionar-receita/adicionar-receita.component';
 import { ReceitasComponent } from './Components/receitas/receitas.component';
-import { LoadingComponent } from './Shared/loading/loading.component';
 import { AlertModalComponent } from './Shared/alert-modal/alert-modal.component';
+import { LoadingComponent } from './Shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AlertModalComponent } from './Shared/alert-modal/alert-modal.component'
     CadastrarComponent,
     ReceitasComponent,
     LoadingComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    AdicionarReceitaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { AdicionarReceitaComponent } from './Components/receitas/adicionar-receita/adicionar-receita.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,7 +11,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "cadastrar", component: CadastrarComponent },
   { path: "receitas", component: ReceitasComponent},
-  { path: "receitas/adicionar", component: CadastrarComponent}
+  { path: "receitas/adicionar", component: AdicionarReceitaComponent}
 ];
 
 @NgModule({
