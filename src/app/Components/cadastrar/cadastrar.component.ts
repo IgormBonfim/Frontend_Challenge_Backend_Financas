@@ -1,3 +1,4 @@
+import { AlertModalService } from './../../Shared/alert-modal.service';
 import { AlertModalComponent } from './../../Shared/alert-modal/alert-modal.component';
 import { CadastroService } from './../../Services/cadastro.service';
 import { Usuario } from './../../Models/Usuario';
@@ -19,6 +20,7 @@ export class CadastrarComponent implements OnInit {
 
     private service: CadastroService,
     private formBuilder: FormBuilder,
+    private alertService: AlertModalService,
     private modalService: BsModalService
 
     ) { }
@@ -27,9 +29,9 @@ export class CadastrarComponent implements OnInit {
     this.cadastroForm = this.formBuilder.group(
       {
         email: ["", [Validators.required, Validators.email]],
-        confirmarEmail: ["", [Validators.required, Validators.email]],
+        // confirmarEmail: ["", [Validators.required, Validators.email]],
         senha: ["", [Validators.required]],
-        confirmarSenha: ["", [Validators.required]]
+        // confirmarSenha: ["", [Validators.required]]
       }
     )
   }
@@ -40,17 +42,15 @@ export class CadastrarComponent implements OnInit {
     this.service.create(dadosCadastro)
       .subscribe(
         response => {
-          var resposta = response
-          console.log(resposta);
+          let resposta: any;
+          resposta = response;
+          console.log(resposta.mensagem);
+          console.log(resposta.type)
+          this.alertService.showAlert(resposta.mensagem, resposta.type)
         }
       )
   }
 
-  onAlert() {
-    this.bsModalRef = this.modalService.show(AlertModalComponent);
-    this.bsModalRef.content.type = 'danger';
-    this.bsModalRef.content.message = 'Erro ao carregar cadastro';
 
-  }
 
 }

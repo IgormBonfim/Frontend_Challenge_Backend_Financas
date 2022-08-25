@@ -21,4 +21,8 @@ export class ReceitasComponent implements OnInit {
     console.log(this.receitas)
   }
 
+  maisDetalhes(id: number){
+    console.log(id)
+  }
+
 }

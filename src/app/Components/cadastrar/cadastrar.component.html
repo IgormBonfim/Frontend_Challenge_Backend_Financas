@@ -4,15 +4,15 @@
     <form class="box__campos" [formGroup]="cadastroForm" (submit)="submitCadastro()">
       <label class="box__label" for="">Digite seu email*</label>
       <input class="box__input" type="email" placeholder="seuemail@challengebackend.com" formControlName="email">
-      <label class="box__label" for="">Confirme seu email*</label>
-      <input class="box__input" type="email" placeholder="seuemail@challengebackend.com">
+      <!-- <label class="box__label" for="">Confirme seu email*</label>
+      <input class="box__input" type="email" placeholder="seuemail@challengebackend.com" formControlName="confirmarEmail"> -->
       <label class="box__label" for="">Digite sua senha*</label>
       <input class="box__input" type="password" placeholder="Digite sua senha" formControlName="senha">
-      <label class="box__label" for="">Confirme sua senha*</label>
-      <input class="box__input" type="password" placeholder="Confirme sua senha">
+      <!-- <label class="box__label" for="">Confirme sua senha*</label>
+      <input class="box__input" type="password" placeholder="Confirme sua senha" formControlName="confirmarSenha"> -->
     </form>
     <span class="box__bordas">
-      <button class="box__botao" type="submit"  (click)="submitCadastro()">Cadastre-se</button>
+      <button class="btn box__botao" type="submit" [disabled]="cadastroForm.invalid" (click)="submitCadastro()">Cadastre-se</button>
     </span>
   </div>
 </main>

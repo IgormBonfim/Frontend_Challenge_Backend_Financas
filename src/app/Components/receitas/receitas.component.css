@@ -34,8 +34,14 @@
 .cabecalho__botao {
   padding: 10px;
   color: #fff;
+  border: 2px solid var(--cor-principal);
   background-color: var(--cor-principal);
   border-radius: 5px;
+}
+
+.cabecalho__botao:hover {
+  background-color: #fff;
+  color: var(--cor-principal);
 }
 
 .financas {
@@ -78,6 +84,12 @@
   background-color: var(--cor-principal);
   color: #fff;
   border-radius: 5px;
+  border: 2px solid var(--cor-principal);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.financas__box__botao:hover {
+  background-color: #fff;
+  color: var(--cor-principal);
+  transition: 0.5s;
 }

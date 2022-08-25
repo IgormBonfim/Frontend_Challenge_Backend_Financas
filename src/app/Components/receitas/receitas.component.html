@@ -3,7 +3,7 @@
   <div class="cabecalho">
     <h2 class="cabecalho__titulo">Receitas</h2>
     <input class="cabecalho__search" type="text">
-    <a class="cabecalho__botao">Adicionar Receita</a>
+    <button class="cabecalho__botao" [routerLink]="['/receitas/adicionar']">Adicionar Receita</button>
   </div>
 
   <div class="financas" *ngIf="receitas | async as receitas; else loading">
@@ -11,7 +11,7 @@
       <h2 class="financas__box__titulo"> {{receita.descricao}} </h2>
       <h3 class="financas__box__categoria"> {{receita.categoria.nomeCategoria}} </h3>
       <p class="financas__box__valor">Valor: R$ {{ receita.valor }}</p>
-      <a class="financas__box__botao">Mais detalhes</a>
+      <button class="financas__box__botao" (click)="maisDetalhes(receita.id)">Mais detalhes</button>
     </div>
   </div>
 </main>

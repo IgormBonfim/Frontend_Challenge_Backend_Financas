@@ -1,3 +1,7 @@
 .no-margin {
   margin-bottom: 0;
 }
+
+.btn-close {
+  max-height: 10px;
+}

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal'
 
@@ -8,16 +9,23 @@ import { BsModalRef } from 'ngx-bootstrap/modal'
 })
 export class AlertModalComponent implements OnInit {
 
-  @Input() type = 'success';
+  @Input() type!: string;
   @Input() message!: string;
 
-  constructor(public bsModalRef: BsModalRef) { }
+  constructor(
+    public bsModalRef: BsModalRef,
+    private location: Location
+    ) { }
 
   ngOnInit(): void {
   }
 
   onClose() {
     this.bsModalRef.hide();
+
+    if (this.type == "success") {
+      this.location.back()
+    }
   }
 
 }
