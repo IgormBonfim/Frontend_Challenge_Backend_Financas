@@ -1,7 +1,11 @@
+import { AlertModalService } from './../../../Shared/alert-modal.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Categoria } from './../../../Models/Categoria';
 import { CategoriaService } from './../../../Services/categoria.service';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { ReceitaService } from './../../../Services/receita.service';
+import { Receita } from 'src/app/Models/Receita';
 
 @Component({
   selector: 'app-adicionar-receita',
@@ -10,11 +14,22 @@ import { Observable } from 'rxjs';
 })
 export class AdicionarReceitaComponent implements OnInit {
 
-  public categorias!: Categoria[];
+  receitaForm!: FormGroup
+  categorias!: Categoria[];
 
-  constructor(private categoriaService: CategoriaService) { }
+  constructor(
+    private categoriaService: CategoriaService,
+    private receitaService: ReceitaService,
+    private formBuilder: FormBuilder,
+    private alertService: AlertModalService
+    ) { }
 
   ngOnInit(): void {
+    this.onFormBuilder();
+    this.onListaCategorias();
+  }
+
+  onListaCategorias() {
     this.categoriaService.listAllCategorias().subscribe(
       res => {
         this.categorias = res,
@@ -22,6 +37,32 @@ export class AdicionarReceitaComponent implements OnInit {
       }
     );
     console.log(this.categorias)
+  }
+
+  onFormBuilder() {
+    this.receitaForm = this.formBuilder.group(
+      {
+        descricao: ["", [Validators.required]],
+        valor: [0, [Validators.required]],
+        data: [new Date(), [Validators.required]],
+        idCategoria: [0, [Validators.required]]
+      }
+    )
+  }
+
+  submitReceita() {
+    console.log("teste");
+    var dadosReceita = this.receitaForm.getRawValue() as Receita;
+    this.receitaService.create(dadosReceita)
+      .subscribe(
+        response => {
+          let resposta: any;
+          resposta = response;
+          console.log(resposta.mensagem);
+          console.log(resposta.type)
+          this.alertService.showAlert(resposta.mensagem, resposta.type)
+        }
+      )
   }
 
 }

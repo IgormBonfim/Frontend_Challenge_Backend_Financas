@@ -16,4 +16,8 @@ export class ReceitaService {
   listAllReceitas():Observable<Receita[]> {
     return this.httpClient.get<Receita[]>(this.baseUrl + "receitas").pipe(first());
   }
+
+  create(receita: Receita) {
+    return this.httpClient.post(this.baseUrl + "receitas", receita);
+  }
 }
