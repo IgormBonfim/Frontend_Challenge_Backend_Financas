@@ -10,7 +10,7 @@
       <input class="box__input" type="date" bsDatepicker formControlName="data">
       <label class="box__label" for="">Categoria*</label>
       <select class="box__input" formControlName="idCategoria">
-        <option class="box__input" *ngFor="let categoria of categorias" value="{{ categoria.idCategoria }}">{{ categoria.nomeCategoria }}</option>
+        <option class="box__input" *ngFor="let categoria of categorias" value="{{ categoria.id }}">{{ categoria.nomeCategoria }}</option>
       </select>
     </form>
     <span class="box__bordas">

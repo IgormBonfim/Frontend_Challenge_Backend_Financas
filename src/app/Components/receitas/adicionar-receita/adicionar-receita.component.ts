@@ -1,3 +1,4 @@
+import { FinancaRequest } from './../../../Models/FinancaRequest';
 import { AlertModalService } from './../../../Shared/alert-modal.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -51,8 +52,8 @@ export class AdicionarReceitaComponent implements OnInit {
   }
 
   submitReceita() {
-    console.log("teste");
-    var dadosReceita = this.receitaForm.getRawValue() as Receita;
+    var dadosReceita = this.receitaForm.getRawValue() as FinancaRequest;
+    console.log(dadosReceita);
     this.receitaService.create(dadosReceita)
       .subscribe(
         response => {

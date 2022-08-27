@@ -1,3 +1,4 @@
+import { FinancaRequest } from './../Models/FinancaRequest';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, first } from 'rxjs';
@@ -17,7 +18,7 @@ export class ReceitaService {
     return this.httpClient.get<Receita[]>(this.baseUrl + "receitas").pipe(first());
   }
 
-  create(receita: Receita) {
+  create(receita: FinancaRequest) {
     return this.httpClient.post(this.baseUrl + "receitas", receita);
   }
 }
