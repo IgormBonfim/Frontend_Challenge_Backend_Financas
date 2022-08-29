@@ -29,7 +29,29 @@
 }
 
 .cabecalho__search {
+  display: flex;
+  align-items: center;
   width: 500px;
+  border: 1px solid var(--cor-principal);
+}
+
+.cabecalho__search__input {
+  flex: 1;
+  border: none;
+  padding: 5px 15px;
+}
+
+.cabecalho__search__botao {
+  background-color: var(--cor-principal);
+  min-height: 35px;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 0;
+}
+
+.cabecalho__search__botao:hover {
+  background-color: var(--verde-escuro);
 }
 
 .cabecalho__botao {

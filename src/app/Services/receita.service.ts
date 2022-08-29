@@ -18,6 +18,10 @@ export class ReceitaService {
     return this.httpClient.get<Receita[]>(this.baseUrl + "receitas").pipe(first());
   }
 
+  listByDescricao(search: string):Observable<Receita[]> {
+    return this.httpClient.get<Receita[]>(this.baseUrl + "receitas" + "/descricao?descricao=" + search).pipe(first());
+  }
+
   create(receita: FinancaRequest) {
     return this.httpClient.post(this.baseUrl + "receitas", receita);
   }

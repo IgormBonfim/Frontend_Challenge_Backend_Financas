@@ -15,6 +15,7 @@ import { AdicionarReceitaComponent } from './Components/receitas/adicionar-recei
 import { ReceitasComponent } from './Components/receitas/receitas.component';
 import { AlertModalComponent } from './Shared/alert-modal/alert-modal.component';
 import { LoadingComponent } from './Shared/loading/loading.component';
+import { DetalhesReceitaComponent } from './Components/receitas/detalhes-receita/detalhes-receita.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoadingComponent } from './Shared/loading/loading.component';
     ReceitasComponent,
     LoadingComponent,
     AlertModalComponent,
-    AdicionarReceitaComponent
+    AdicionarReceitaComponent,
+    DetalhesReceitaComponent
   ],
   imports: [
     BrowserModule,

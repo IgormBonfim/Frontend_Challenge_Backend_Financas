@@ -2,7 +2,10 @@
 <main class="container">
   <div class="cabecalho">
     <h2 class="cabecalho__titulo">Receitas</h2>
-    <input class="cabecalho__search" type="text">
+    <form class="cabecalho__search" [formGroup]="searchForm">
+      <input class="cabecalho__search__input" type="text" placeholder="Pesquise aqui..." formControlName="search">
+      <button class="btn cabecalho__search__botao" type="submit" [disabled]="searchForm.invalid" (click)="onSearch()">Buscar</button>
+    </form>
     <button class="cabecalho__botao" [routerLink]="['/receitas/adicionar']">Adicionar Receita</button>
   </div>
 

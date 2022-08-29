@@ -44,9 +44,9 @@ export class AdicionarReceitaComponent implements OnInit {
     this.receitaForm = this.formBuilder.group(
       {
         descricao: ["", [Validators.required]],
-        valor: [0, [Validators.required]],
-        data: [new Date(), [Validators.required]],
-        idCategoria: [0, [Validators.required]]
+        valor: ["", [Validators.required]],
+        data: ["", [Validators.required]],
+        idCategoria: ["", [Validators.required]]
       }
     )
   }
