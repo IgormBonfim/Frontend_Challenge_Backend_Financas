@@ -6,7 +6,7 @@
       <input class="cabecalho__search__input" type="text" placeholder="Pesquise aqui..." formControlName="search">
       <button class="btn cabecalho__search__botao" type="submit" [disabled]="searchForm.invalid" (click)="onSearch()">Buscar</button>
     </form>
-    <button class="cabecalho__botao" [routerLink]="['/receitas/adicionar']">Adicionar Receita</button>
+    <button class="cabecalho__botao" [routerLink]="['./adicionar']">Adicionar Receita</button>
   </div>
 
   <div class="financas" *ngIf="receitas | async as receitas; else loading">
@@ -14,7 +14,7 @@
       <h2 class="financas__box__titulo"> {{receita.descricao}} </h2>
       <h3 class="financas__box__categoria"> {{receita.categoria.nomeCategoria}} </h3>
       <p class="financas__box__valor">Valor: R$ {{ receita.valor }}</p>
-      <button class="financas__box__botao" (click)="maisDetalhes(receita.id)">Mais detalhes</button>
+      <button class="financas__box__botao" [routerLink]="['receitas/detalhes/' + receita.id]">Mais detalhes</button>
     </div>
   </div>
 </main>
