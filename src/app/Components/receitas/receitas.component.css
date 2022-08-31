@@ -39,6 +39,7 @@
   flex: 1;
   border: none;
   padding: 5px 15px;
+  outline: none;
 }
 
 .cabecalho__search__botao {

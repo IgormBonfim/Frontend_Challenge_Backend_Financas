@@ -1,5 +1,4 @@
-import { AlertModalService } from './../../Shared/alert-modal.service';
-import { AlertModalComponent } from './../../Shared/alert-modal/alert-modal.component';
+import { AlertModalService, TypeAlert } from './../../Shared/alert-modal.service';
 import { CadastroService } from './../../Services/cadastro.service';
 import { Usuario } from './../../Models/Usuario';
 import { Component, OnInit } from '@angular/core';
@@ -29,17 +28,16 @@ export class CadastrarComponent implements OnInit {
     this.cadastroForm = this.formBuilder.group(
       {
         email: ["", [Validators.required, Validators.email]],
-        // confirmarEmail: ["", [Validators.required, Validators.email]],
+        confirmarEmail: ["", [Validators.required, Validators.email]],
         senha: ["", [Validators.required]],
-        // confirmarSenha: ["", [Validators.required]]
+        confirmarSenha: ["", [Validators.required]]
       }
     )
   }
 
-  submitCadastro() {
-    console.log("teste");
-    var dadosCadastro = this.cadastroForm.getRawValue() as Usuario;
-    this.service.create(dadosCadastro)
+  adicionarUsuario() {
+    var usuario: Usuario = new Usuario(this.cadastroForm.value.email, this.cadastroForm.value.senha);
+    this.service.create(usuario)
       .subscribe(
         response => {
           let resposta: any;
@@ -51,6 +49,17 @@ export class CadastrarComponent implements OnInit {
       )
   }
 
+  submitCadastro() {
+    if (this.cadastroForm.value.email != this.cadastroForm.value.confirmarEmail) {
+      this.alertService.showAlert("Os emails não correspondem", TypeAlert.Aviso);
+      return;
+    }
+    if (this.cadastroForm.value.senha != this.cadastroForm.value.confirmarSenha) {
+      this.alertService.showAlert("As senhas não correspondem", TypeAlert.Aviso);
+      return;
+    }
+    this.adicionarUsuario()
+  }
 
 
 }
