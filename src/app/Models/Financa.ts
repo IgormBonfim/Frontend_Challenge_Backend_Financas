@@ -1,10 +1,10 @@
 import { Categoria } from "./Categoria";
 
-export class Receita {
+export class Financa {
   public id!: number;
   public descricao!: string;
   public valor!: number;
-  public dataReceita!: Date;
+  public data!: Date;
   public idCategoria!: number;
   public categoria!: Categoria;
 }

@@ -1,3 +1,7 @@
+import { Observable } from 'rxjs';
+import { Financa } from '../../../Models/Financa';
+import { ReceitaService } from './../../../Services/receita.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalhesReceitaComponent implements OnInit {
 
-  constructor() { }
+  public receita!: Financa;
+
+  constructor(
+    private service: ReceitaService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(
+      (params: any) => {
+        const receitaId = params.id;
+        this.getReceita(receitaId);
+      }
+    )
+  }
+
+  getReceita(id: number) {
+    this.service.getById(id).subscribe(res => this.receita = res);
   }
 
 }

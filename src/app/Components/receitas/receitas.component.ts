@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ReceitaService } from 'src/app/Services/receita.service';
 
-import { Receita } from './../../Models/Receita';
-import { ReceitaService } from './../../Services/receita.service';
+import { Financa } from '../../Models/Financa';
 
 @Component({
   selector: 'app-receitas',
@@ -12,12 +13,14 @@ import { ReceitaService } from './../../Services/receita.service';
 })
 export class ReceitasComponent implements OnInit {
 
-  public receitas!: Observable<Receita[]>;
+  public receitas!: Observable<Financa[]>;
   public searchForm!: FormGroup;
 
   constructor(
     private service: ReceitaService,
     private formBuilder: FormBuilder,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +42,7 @@ export class ReceitasComponent implements OnInit {
   }
 
   maisDetalhes(id: number){
-    console.log(id)
+    this.router.navigate(["detalhes", id], { relativeTo: this.route});
   }
 
 }

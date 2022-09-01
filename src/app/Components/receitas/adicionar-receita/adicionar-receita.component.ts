@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Categoria } from './../../../Models/Categoria';
 import { CategoriaService } from './../../../Services/categoria.service';
 import { ReceitaService } from './../../../Services/receita.service';
-import { Receita } from 'src/app/Models/Receita';
+import { Financa } from 'src/app/Models/Financa';
 
 @Component({
   selector: 'app-adicionar-receita',

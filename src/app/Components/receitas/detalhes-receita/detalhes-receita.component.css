@@ -30,7 +30,61 @@
   color: #fff;
 }
 
-.box__bordas{
+.box__info {
+  align-self: center;
+  padding: 25px;
+}
+
+.box__info p {
+  font-size: 18px;
+}
+
+.box__info__categoria {
+  padding: 10px;
+}
+
+.box__info__valor {
+  padding: 10px;
+  text-align: center;
+}
+
+.box__info__data {
+  padding: 10px;
+}
+
+.box__info__campo {
+  font-weight: bold;
+  color: var(--cor-principal);
+}
+
+.box__botoes{
+  padding: 10px 25px 25px;
   display: flex;
   justify-content: space-evenly;
+}
+
+.box__botao {
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.box__botao--editar {
+  background-color: var(--cor-principal);
+  border: 2px solid var(--cor-principal);
+  color: #fff;
+}
+
+.box__botao--editar:hover {
+  background-color: #fff;
+  color: var(--cor-principal);
+}
+
+.box__botao--excluir {
+  background-color: #C21807;
+  color: #fff;
+}
+
+.box__botao--excluir:hover {
+  background-color: #7f0000;
 }

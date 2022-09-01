@@ -1,10 +1,14 @@
 <main class="container">
   <div class="box">
-    <h3 class="box__titulo">Titulo da receita</h3>
-    
-    <span class="box__bordas">
-      <button>Editar Receita</button>
-      <button class="btn box__botao" type="submit">Excluir Receita</button>
+    <h3 class="box__titulo"> {{receita.descricao}} </h3>
+    <div class="box__info">
+      <p class="box__info__categoria"> Categoria da Receita: <span class="box__info__campo">{{receita.categoria.nomeCategoria}}</span></p>
+      <p class="box__info__valor"> Valor da Receita: <span class="box__info__campo">R${{receita.valor}}</span> </p>
+      <p class="box__info__data"> Data da Receita: <span class="box__info__campo">{{receita.data}}</span></p>
+    </div>
+    <span class="box__botoes">
+      <button class="box__botao box__botao--editar">Editar Receita</button>
+      <button class="box__botao box__botao--excluir">Excluir Receita</button>
     </span>
   </div>
 </main>

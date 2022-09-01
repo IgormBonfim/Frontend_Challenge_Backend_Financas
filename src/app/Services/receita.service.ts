@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, first } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Receita } from '../Models/Receita';
+import { Financa } from '../Models/Financa';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +14,19 @@ export class ReceitaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listAllReceitas():Observable<Receita[]> {
-    return this.httpClient.get<Receita[]>(this.baseUrl + "receitas").pipe(first());
+  listAllReceitas():Observable<Financa[]> {
+    return this.httpClient.get<Financa[]>(this.baseUrl + "Receitas").pipe(first());
   }
 
-  listByDescricao(search: string):Observable<Receita[]> {
-    return this.httpClient.get<Receita[]>(this.baseUrl + "receitas" + "/descricao?descricao=" + search).pipe(first());
+  listByDescricao(search: string):Observable<Financa[]> {
+    return this.httpClient.get<Financa[]>(this.baseUrl + "Receitas" + "/descricao?descricao=" + search).pipe(first());
+  }
+
+  getById(id: number):Observable<Financa> {
+    return this.httpClient.get<Financa>(this.baseUrl + "Receitas/" + id);
   }
 
   create(receita: FinancaRequest) {
-    return this.httpClient.post(this.baseUrl + "receitas", receita);
+    return this.httpClient.post(this.baseUrl + "Receitas", receita);
   }
 }
