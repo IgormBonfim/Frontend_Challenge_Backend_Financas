@@ -24,7 +24,7 @@ export class ReceitasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.receitas = this.service.listAllReceitas().pipe();
+    this.listarReceitas();
     this.onFormBuilder();
     console.log(this.receitas)
   }
@@ -45,4 +45,7 @@ export class ReceitasComponent implements OnInit {
     this.router.navigate(["detalhes", id], { relativeTo: this.route});
   }
 
+  listarReceitas() {
+    this.receitas = this.service.listAllReceitas().pipe();
+  }
 }
