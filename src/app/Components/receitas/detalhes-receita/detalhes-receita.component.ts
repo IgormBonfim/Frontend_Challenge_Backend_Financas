@@ -30,4 +30,8 @@ export class DetalhesReceitaComponent implements OnInit {
     this.service.getById(id).subscribe(res => this.receita = res);
   }
 
+  editarReceita(id: number) {
+    console.log(id);
+  }
+
 }

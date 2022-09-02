@@ -7,7 +7,7 @@
       <p class="box__info__data"> Data da Receita: <span class="box__info__campo">{{receita.data}}</span></p>
     </div>
     <span class="box__botoes">
-      <button class="box__botao box__botao--editar">Editar Receita</button>
+      <button class="box__botao box__botao--editar" (click)="editarReceita(receita.id)">Editar Receita</button>
       <button class="box__botao box__botao--excluir">Excluir Receita</button>
     </span>
   </div>
