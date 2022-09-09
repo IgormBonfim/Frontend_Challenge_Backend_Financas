@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  min-height: 66vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.box {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.box__titulo {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: var(--cor-principal);
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  color: #fff;
+}
+
+.box__texto {
+  padding: 10px;
+  text-align: justify;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.box__campos {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 30px;
+}
+
+.box__label {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cor-principal);
+}
+
+.box__input {
+  margin-top: 5px;
+  padding: 10px 16px;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid #A2A2A2;
+  border-radius: 5px;
+}
+
+.box__input::placeholder {
+  color: #A2A2A2;
+}
+
+.box__bordas{
+  display: flex;
+  justify-content: space-around;
+}
+
+.box__botao {
+  padding: 20px;
+  background-color: var(--cor-principal);
+  width: 300px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid var(--cor-principal);
+  margin-bottom: 20px;
+}
+
+.box__botao:hover {
+  background-color: #fff;
+  color: var(--cor-principal);
+  transition: 0.5s;
+}

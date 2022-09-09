@@ -1,0 +1,14 @@
+<main class="container">
+  <div class="box">
+    <h3 class="box__titulo">Fazer Login</h3>
+    <form class="box__campos" [formGroup]="loginForm" (submit)="fazerLogin()">
+      <label class="box__label" for="">Digite seu email*</label>
+      <input class="box__input" type="email" placeholder="seuemail@challengebackend.com" formControlName="email">
+      <label class="box__label" for="">Digite sua senha*</label>
+      <input class="box__input" type="password" placeholder="Digite sua senha" formControlName="senha">
+    </form>
+    <span class="box__bordas">
+      <button class="btn box__botao" [disabled]="loginForm.invalid" type="submit" (click)="fazerLogin()">Fazer Login</button>
+    </span>
+  </div>
+</main>
